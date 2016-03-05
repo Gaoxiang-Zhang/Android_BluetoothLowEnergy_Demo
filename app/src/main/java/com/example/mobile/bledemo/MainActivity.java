@@ -160,9 +160,11 @@ public class MainActivity extends ActionBarActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    deviceList.add(device);
-                    deviceName.add(device.getName());
-                    arrayAdapter.notifyDataSetChanged();
+                    if (!deviceList.contains(device)) {
+                        deviceList.add(device);
+                        deviceName.add(device.getName());
+                        arrayAdapter.notifyDataSetChanged();
+                    }
                 }
             });
         }
